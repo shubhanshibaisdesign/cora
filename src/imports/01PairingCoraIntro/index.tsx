@@ -509,7 +509,7 @@ export default function Component01PairingCoraIntro({ onComplete, onSupportingCl
           <LeftSide />
           <RightSide />
         </div>
-        <p className="shrink-0 font-['Urbanist:Regular',sans-serif] text-[16px] text-[#dd692c] text-center">
+        <p className="shrink-0 mt-[24px] font-['Urbanist:Regular',sans-serif] text-[16px] text-[#dd692c] text-center">
           Please turn on your Bluetooth device
         </p>
         <ContentArea onComplete={onComplete} onSupportingClick={onSupportingClick} />

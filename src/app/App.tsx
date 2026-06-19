@@ -303,7 +303,7 @@ function useFrameScale() {
   return scale;
 }
 
-export function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string) => void; defaultTab?: "home" | "care" | "scan" | "profile" }) {
+export function Homepage({ onNavigate, onSwitchToCaregiver, defaultTab = "home" }: { onNavigate: (s: string) => void; onSwitchToCaregiver?: () => void; defaultTab?: "home" | "care" | "scan" | "profile" }) {
   const [activeTab, setActiveTab] = useState<"home" | "care" | "scan" | "profile">(defaultTab);
   const scale = useFrameScale();
 
@@ -343,8 +343,14 @@ export function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: 
             ) : activeTab === "scan" ? (
               <PatchPage />
             ) : (
-              <div className="flex-1 flex items-center justify-center px-[20px]">
+              <div className="flex-1 flex flex-col items-center justify-center gap-[24px] px-[20px]">
                 <p className="font-['Urbanist',sans-serif] font-medium text-[20px] text-[#434343]">Profile</p>
+                <button
+                  onClick={onSwitchToCaregiver}
+                  className="bg-[#dd692c] rounded-[41px] px-[32px] py-[14px] font-['Urbanist',sans-serif] font-medium text-[16px] text-[#fdfdfd] cursor-pointer"
+                >
+                  Switch to Caregiver View
+                </button>
               </div>
             )}
           </motion.div>
@@ -496,10 +502,10 @@ export default function App() {
     return <CaregiverWelcome />;
   }
   if (screen === "caregiver-home") {
-    return <CaregiverHome />;
+    return <CaregiverHome onSwitchToPatient={() => setScreen("homepage")} />;
   }
   if (screen === "homepage" || screen === "homepage-care") {
-    return <Homepage onNavigate={(s) => setScreen(s as Screen)} defaultTab={screen === "homepage-care" ? "care" : "home"} />;
+    return <Homepage onNavigate={(s) => setScreen(s as Screen)} onSwitchToCaregiver={() => setScreen("caregiver-home")} defaultTab={screen === "homepage-care" ? "care" : "home"} />;
   }
 
   return (
