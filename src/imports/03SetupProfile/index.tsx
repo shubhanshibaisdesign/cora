@@ -133,7 +133,7 @@ type Option = typeof OPTIONS[number];
 function Question() {
   const [selected, setSelected] = useState<Option | null>(null);
   return (
-    <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col gap-[24px] items-start left-1/2 top-[calc(50%-95px)] w-[353px]" data-name="question">
+    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-0 top-[153px] w-[353px]" data-name="question">
       <Question1 />
       <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" data-name="menu">
         {OPTIONS.map((opt) => (

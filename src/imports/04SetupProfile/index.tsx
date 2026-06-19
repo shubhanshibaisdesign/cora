@@ -1229,7 +1229,7 @@ function Frame26({
   setCm: (v: number) => void;
 }) {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[60px] items-center left-[-10px] top-0 w-[373px]">
+    <div className="absolute content-stretch flex flex-col gap-[115px] items-center left-[-10px] top-0 w-[373px]">
       <TopNavBar onBack={onBack} onNext={onNext} />
       <QuestionArea {...props} />
     </div>

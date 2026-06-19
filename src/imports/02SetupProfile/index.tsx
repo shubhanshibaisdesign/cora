@@ -261,7 +261,7 @@ function ContentArea({ onContinue }: { onContinue?: () => void }) {
   return (
     <div className="h-[745px] relative shrink-0 w-full" data-name="ContentArea">
       <DeviceVideo />
-      <div className="-translate-y-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute flex flex-col font-['Urbanist:Medium',sans-serif] font-medium h-[55px] justify-center leading-[0] left-[calc(50%-176.5px)] text-[#434343] text-[32px] top-[calc(50%-209px)] w-[353px]">
+      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute flex flex-col font-['Urbanist:Medium',sans-serif] font-medium h-[55px] justify-center leading-[0] left-0 text-[#434343] text-[32px] top-[153px] w-[353px]">
         <p className="leading-[33.657px]">What is your birth date?</p>
       </div>
       <DatePicker />
