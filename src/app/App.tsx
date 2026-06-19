@@ -303,7 +303,7 @@ function useFrameScale() {
   return scale;
 }
 
-function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string) => void; defaultTab?: "home" | "care" | "scan" | "profile" }) {
+export function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string) => void; defaultTab?: "home" | "care" | "scan" | "profile" }) {
   const [activeTab, setActiveTab] = useState<"home" | "care" | "scan" | "profile">(defaultTab);
   const scale = useFrameScale();
 

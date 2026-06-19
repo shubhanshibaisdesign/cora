@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import Component09SetupProfile from "../../imports/09SetupProfile";
 
 const FRAME_W = 393;
 const FRAME_H = 852;
 
 export default function SetupComplete() {
+  const navigate = useNavigate();
   const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const t = setTimeout(() => navigate("/homepage"), 2000);
+    return () => clearTimeout(t);
+  }, [navigate]);
 
   useEffect(() => {
     function update() {
