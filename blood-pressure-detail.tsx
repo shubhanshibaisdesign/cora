@@ -85,7 +85,7 @@ export const BloodPressureDetail = ({ onBack }: { onBack: () => void }): JSX.Ele
                   <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[16px]">Blood Pressure</p>
+              <p className="font-['Urbanist',sans-serif] font-medium text-[36px] text-[#3f2815] leading-[42px]">Blood Pressure</p>
             </div>
 
             {/* Focus card */}
