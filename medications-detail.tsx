@@ -6,8 +6,8 @@ const FRAME_W = 393;
 const FRAME_H = 852;
 
 const MEDS = [
-  { name: "AMLODIPINE 5MG", doctor: "Dr XYZ", reason: "Reason for presciption", summary: "Lowers blood pressure by relaxing blood vessels" },
-  { name: "RAMIPRIL 5MG", doctor: "Dr XYZ", reason: "Reason for presciption", summary: "Protects heart and kidneys by reducing strain" },
+  { name: "AMLODIPINE 5MG", doctor: "Dr. Sarah Mitchell", reason: "Lowers blood pressure by relaxing blood vessels", summary: "Lowers blood pressure by relaxing blood vessels" },
+  { name: "RAMIPRIL 5MG", doctor: "Dr. James Patel", reason: "Protects heart and kidneys by reducing strain", summary: "Protects heart and kidneys by reducing strain" },
 ];
 
 function MedCard({ name, doctor, reason, summary }: { name: string; doctor: string; reason: string; summary: string }) {
