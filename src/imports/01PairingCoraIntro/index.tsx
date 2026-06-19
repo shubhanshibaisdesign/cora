@@ -67,7 +67,7 @@ function RightSide() {
 
 function AppleButton() {
   return (
-    <div className="absolute bg-[#dd692c] flex items-center justify-center h-[44px] left-0 overflow-clip rounded-[41px] top-[693px] w-[353px]" data-name="Apple Button">
+    <div className="absolute bg-[#dd692c] flex items-center justify-center h-[52px] left-0 overflow-clip rounded-[41px] top-[693px] w-[353px]" data-name="Apple Button">
       <div className="-translate-x-1/2 -translate-y-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute flex flex-col font-['Urbanist:Regular',sans-serif] font-normal justify-center leading-[0] left-[calc(50%-0.5px)] text-[#fdfdfd] text-[16px] text-center top-[calc(50%+0.5px)] whitespace-nowrap">
         <p className="leading-[21.8px]">Start Pairing</p>
       </div>
