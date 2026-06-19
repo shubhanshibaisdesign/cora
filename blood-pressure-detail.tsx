@@ -104,7 +104,7 @@ export const BloodPressureDetail = ({ onBack }: { onBack: () => void }): JSX.Ele
               <div className="flex flex-col items-start pb-[8px] pt-[18px] px-[8px]">
                 {/* Focus header */}
                 <div className="flex items-center justify-between pl-[12px] w-full">
-                  <div className="flex flex-col gap-[4px] items-start w-[122px]">
+                  <div className="flex flex-col gap-[4px] items-start whitespace-nowrap">
                     <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[16px]">FOCUS</p>
                     <p className="font-['Urbanist',sans-serif] font-normal text-[12px] text-[#434343] leading-[16px]">Last synced 6 mins ago</p>
                   </div>
