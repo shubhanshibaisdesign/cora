@@ -149,12 +149,12 @@ export const BloodPressureDetail = ({ onBack }: { onBack: () => void }): JSX.Ele
             </div>
 
             {/* Tabs */}
-            <div className="flex gap-[4px] mt-[24px] bg-[rgba(217,217,217,0.3)] rounded-[12px] p-[4px]">
+            <div className="flex gap-[4px] mt-[24px] bg-[rgba(217,217,217,0.3)] rounded-full h-[52px] p-[4px]">
               {TABS.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`flex-1 py-[8px] rounded-[10px] font-['Urbanist',sans-serif] font-medium text-[13px] leading-[16px] transition-all ${
+                  className={`flex-1 rounded-full font-['Urbanist',sans-serif] font-medium text-[13px] leading-[16px] transition-all ${
                     activeTab === tab
                       ? "bg-[#fdfdfd] text-[#3f2815] shadow-sm"
                       : "text-[#434343]"

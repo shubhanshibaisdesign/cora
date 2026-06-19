@@ -86,22 +86,18 @@ function Greeting() {
 function Focus({ onClick }: { onClick?: () => void }) {
   return (
     <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 relative rounded-[20px] shrink-0 w-full cursor-pointer" onClick={onClick}>
-      <div className="content-stretch flex flex-col items-start pb-[8px] pt-[18px] px-[8px] relative size-full">
-        <div className="content-stretch flex items-center justify-between pl-[12px] relative shrink-0 w-full">
-          <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-start leading-[0] relative shrink-0">
-            <div className="flex flex-col font-['Urbanist',sans-serif] font-semibold justify-center relative shrink-0 text-[#3f2815] text-[16px] w-full">
-              <p className="leading-[16px]">FOCUS</p>
-            </div>
-            <div className="flex flex-col font-['Urbanist',sans-serif] font-normal justify-center relative shrink-0 text-[#434343] text-[12px] w-full">
-              <p className="leading-[16px]">Last synced 6 mins ago</p>
-            </div>
+      <div className="flex flex-col gap-[16px] items-start pb-[5px] pt-[18px] px-[5px]">
+        <div className="flex items-center justify-between px-[12px] w-full">
+          <div className="flex flex-col gap-[4px]">
+            <p className="font-['Urbanist',sans-serif] font-semibold leading-[16px] text-[#3f2815] text-[16px]">FOCUS</p>
+            <p className="font-['Urbanist',sans-serif] font-normal leading-[16px] text-[#434343] text-[12px]">Last synced 6 mins ago</p>
           </div>
-          <div className="relative shrink-0 size-[39px]">
+          <div className="shrink-0 size-[39px]">
             <ReloadIcon />
           </div>
         </div>
-        <div className="mt-[16px] relative rounded-[18px] shrink-0 w-full" style={{ backgroundImage: "linear-gradient(122.197deg, rgba(255,255,255,0) 47.059%, rgba(255,255,255,0.28) 11.765%, rgba(255,255,255,0) 70.588%), linear-gradient(114.938deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 52.941%, rgba(255,255,255,0) 117.65%), linear-gradient(90deg, rgb(249,248,247) 0%, rgb(249,248,247) 100%)" }}>
-          <div className="flex flex-col justify-between pb-[20px] pt-[19px] px-[14px] relative w-full text-[#434343]" style={{ minHeight: 218 }}>
+        <div className="rounded-[18px] w-full" style={{ backgroundImage: "linear-gradient(122.197deg, rgba(255,255,255,0) 47.059%, rgba(255,255,255,0.28) 11.765%, rgba(255,255,255,0) 70.588%), linear-gradient(114.938deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 52.941%, rgba(255,255,255,0) 117.65%), linear-gradient(90deg, rgb(249,248,247) 0%, rgb(249,248,247) 100%)" }}>
+          <div className="flex flex-col justify-between py-[24px] px-[14px] w-full text-[#434343]" style={{ minHeight: 218 }}>
             <div className="flex items-center justify-between text-[12px] w-full whitespace-nowrap">
               <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">BLOOD PRESSURE</p>
               <p className="font-['Urbanist',sans-serif] font-medium leading-none">Target: ≤ 130/80</p>
@@ -109,7 +105,7 @@ function Focus({ onClick }: { onClick?: () => void }) {
             <div className="w-[calc(100%+28px)] -mx-[14px] h-[90px]"><BloodPressureWave /></div>
             <div className="flex font-['Urbanist',sans-serif] font-medium items-end justify-between w-full">
               <p className="leading-[12px] text-[12px] text-[#5E8F5B]">In Range</p>
-              <div className="flex flex-col gap-[4px] items-end w-[91px]">
+              <div className="flex flex-col gap-[4px] items-end">
                 <p className="leading-[32px] text-[32px] text-[#5E8F5B]">122/78</p>
                 <p className="leading-[12px] text-[12px] text-right text-[#5E8F5B]">mmHg</p>
               </div>
@@ -124,7 +120,7 @@ function Focus({ onClick }: { onClick?: () => void }) {
 function EcgCard() {
   return (
     <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible">
-      <div className="flex flex-col items-start justify-between pb-[20px] pt-[19px] px-[14px] size-full text-[#434343]">
+      <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343]">
         <div className="flex items-center justify-between text-[12px] w-full whitespace-nowrap z-10">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">ECG</p>
           <p className="font-['Urbanist',sans-serif] font-medium leading-none">Afib risk : Low</p>
@@ -147,7 +143,7 @@ function EcgCard() {
 function FluidRetentionCard() {
   return (
     <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible">
-      <div className="flex flex-col items-start justify-between pb-[20px] pt-[19px] px-[14px] size-full text-[#434343] whitespace-nowrap">
+      <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343] whitespace-nowrap">
         <div className="flex items-center justify-between text-[12px] w-full z-10">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">FLUID RETENTION</p>
           <p className="font-['Urbanist',sans-serif] font-medium leading-none">Target: ≤ +2.0 kg / day</p>
@@ -170,7 +166,7 @@ function FluidRetentionCard() {
 function LdlCholesterolCard() {
   return (
     <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full">
-      <div className="flex flex-col items-start justify-between pb-[20px] pt-[19px] px-[14px] size-full text-[#434343] whitespace-nowrap">
+      <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343] whitespace-nowrap">
         <div className="flex items-center justify-between text-[12px] w-full">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">LDL CHOLESTEROL</p>
           <p className="font-['Urbanist',sans-serif] font-medium leading-none text-right">Last panel : 9 May</p>
@@ -191,7 +187,7 @@ function LdlCholesterolCard() {
 function HealthMarkers() {
   return (
     <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 relative rounded-[20px] shrink-0 w-full overflow-hidden">
-      <div className="flex flex-col gap-[16px] items-start pb-[8px] pt-[23px] px-[8px]">
+      <div className="flex flex-col gap-[16px] items-start pb-[5px] pt-[18px] px-[5px]">
         <div className="flex items-center justify-between px-[12px] w-full">
           <p className="font-['Urbanist',sans-serif] font-semibold leading-[16px] text-[#3f2815] text-[16px]">HEALTH MARKERS</p>
           <img alt="" className="size-[39px]" src={arrowIcon} />
@@ -209,7 +205,7 @@ function HealthMarkers() {
 function HalfVitalCard({ label, value, unit, chart }: { label: string; value: string; unit: string; chart: React.ReactNode }) {
   return (
     <div className="bg-[#fdfdfd] flex-[1_0_0] h-[218px] min-w-px relative rounded-[18px]">
-      <div className="flex flex-col items-start justify-between pb-[20px] pt-[19px] px-[19px] size-full">
+      <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full">
         <p className="font-['Urbanist',sans-serif] font-normal leading-[16px] text-[#434343] text-[12px] whitespace-nowrap">{label}</p>
         <div className="w-full h-[90px]">{chart}</div>
         <div className="flex items-end justify-end w-full">
@@ -226,7 +222,7 @@ function HalfVitalCard({ label, value, unit, chart }: { label: string; value: st
 function DailyVitals() {
   return (
     <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 relative rounded-[20px] shrink-0 w-full">
-      <div className="flex flex-col gap-[16px] items-start pb-[8px] pt-[23px] px-[8px]">
+      <div className="flex flex-col gap-[16px] items-start pb-[5px] pt-[18px] px-[5px]">
         <div className="flex items-center justify-between px-[12px] w-full">
           <p className="font-['Urbanist',sans-serif] font-semibold leading-[16px] text-[#3f2815] text-[16px]">DAILY VITALS</p>
           <img alt="" className="size-[39px]" src={arrowIcon} />
@@ -249,7 +245,7 @@ function DailyVitals() {
 function FullLifestyleCard({ label, target, status, value, unit, chart, targetRight }: { label: string; target: string; status: string; value: string; unit: string; chart: React.ReactNode; targetRight?: boolean }) {
   return (
     <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible">
-      <div className="flex flex-col items-start justify-between pb-[20px] pt-[19px] px-[19px] size-full text-[#434343] whitespace-nowrap overflow-visible">
+      <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343] whitespace-nowrap overflow-visible">
         <div className="flex items-center justify-between text-[12px] w-full z-10">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">{label}</p>
           <p className={`font-['Urbanist',sans-serif] font-medium leading-none${targetRight ? " text-right" : ""}`}>{target}</p>
@@ -270,7 +266,7 @@ function FullLifestyleCard({ label, target, status, value, unit, chart, targetRi
 function Lifestyle() {
   return (
     <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 relative rounded-[20px] shrink-0 w-full overflow-hidden">
-      <div className="flex flex-col gap-[16px] items-start pb-[8px] pt-[23px] px-[8px]">
+      <div className="flex flex-col gap-[16px] items-start pb-[5px] pt-[18px] px-[5px]">
         <div className="flex items-center justify-between px-[12px] w-full">
           <p className="font-['Urbanist',sans-serif] font-semibold leading-[16px] text-[#3f2815] text-[16px]">LIFESTYLE</p>
           <img alt="" className="size-[39px]" src={arrowIcon} />
