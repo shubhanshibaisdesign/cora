@@ -506,68 +506,18 @@ export default function App() {
     <div className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden">
       <div style={{ width: FRAME_W, height: FRAME_H, transform: `scale(${scale})`, transformOrigin: "center center" }}>
       <div className="relative w-full h-full rounded-[44px] overflow-hidden shadow-2xl">
-        <AnimatePresence mode="wait">
-          {screen === "intro" && (
-            <motion.div key="intro" className="absolute inset-0" initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: "easeInOut" }}>
-              <OnboardingIntro />
-            </motion.div>
-          )}
-          {screen === "cora" && (
-            <motion.div key="cora" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: "easeInOut" }}>
-              <OnboardingCora onGoogleClick={() => setScreen("google-auth")} />
-            </motion.div>
-          )}
-          {screen === "google-auth" && (
-            <motion.div key="google-auth" className="absolute inset-0" initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}>
-              <GoogleAuth onAccountClick={() => setScreen("pairing")} />
-            </motion.div>
-          )}
-          {screen === "pairing" && (
-            <motion.div key="pairing" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component01PairingCoraIntro onComplete={() => setScreen("setup-profile")} onSupportingClick={() => setScreen("caregiver-code")} />
-            </motion.div>
-          )}
-          {screen === "pairing-connected" && (
-            <motion.div key="pairing-connected" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component02PairingCoraIntro />
-            </motion.div>
-          )}
-          {screen === "setup-profile" && (
-            <motion.div key="setup-profile" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component01SetupProfile onStartJourney={() => setScreen("setup-profile-dob")} />
-            </motion.div>
-          )}
-          {screen === "setup-profile-dob" && (
-            <motion.div key="setup-profile-dob" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component02SetupProfile onContinue={() => setScreen("setup-profile-sex")} />
-            </motion.div>
-          )}
-          {screen === "setup-profile-sex" && (
-            <motion.div key="setup-profile-sex" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component03SetupProfile onContinue={() => setScreen("setup-profile-height")} />
-            </motion.div>
-          )}
-          {screen === "setup-profile-height" && (
-            <motion.div key="setup-profile-height" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component04SetupProfile onContinue={() => setScreen("setup-profile-weight")} />
-            </motion.div>
-          )}
-          {screen === "setup-profile-weight" && (
-            <motion.div key="setup-profile-weight" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component06SetupProfile onContinue={() => setScreen("setup-profile-focus")} />
-            </motion.div>
-          )}
-          {screen === "setup-profile-focus" && (
-            <motion.div key="setup-profile-focus" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component07SetupProfile onContinue={() => setScreen("setup-complete")} />
-            </motion.div>
-          )}
-          {screen === "setup-complete" && (
-            <motion.div key="setup-complete" className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-              <Component09SetupProfile />
-            </motion.div>
-          )}
-        </AnimatePresence>
+          {screen === "intro" && <div className="absolute inset-0"><OnboardingIntro /></div>}
+          {screen === "cora" && <div className="absolute inset-0"><OnboardingCora onGoogleClick={() => setScreen("google-auth")} /></div>}
+          {screen === "google-auth" && <div className="absolute inset-0"><GoogleAuth onAccountClick={() => setScreen("pairing")} /></div>}
+          {screen === "pairing" && <div className="absolute inset-0"><Component01PairingCoraIntro onComplete={() => setScreen("setup-profile")} onSupportingClick={() => setScreen("caregiver-code")} /></div>}
+          {screen === "pairing-connected" && <div className="absolute inset-0"><Component02PairingCoraIntro /></div>}
+          {screen === "setup-profile" && <div className="absolute inset-0"><Component01SetupProfile onStartJourney={() => setScreen("setup-profile-dob")} /></div>}
+          {screen === "setup-profile-dob" && <div className="absolute inset-0"><Component02SetupProfile onContinue={() => setScreen("setup-profile-sex")} /></div>}
+          {screen === "setup-profile-sex" && <div className="absolute inset-0"><Component03SetupProfile onContinue={() => setScreen("setup-profile-height")} /></div>}
+          {screen === "setup-profile-height" && <div className="absolute inset-0"><Component04SetupProfile onContinue={() => setScreen("setup-profile-weight")} /></div>}
+          {screen === "setup-profile-weight" && <div className="absolute inset-0"><Component06SetupProfile onContinue={() => setScreen("setup-profile-focus")} /></div>}
+          {screen === "setup-profile-focus" && <div className="absolute inset-0"><Component07SetupProfile onContinue={() => setScreen("setup-complete")} /></div>}
+          {screen === "setup-complete" && <div className="absolute inset-0"><Component09SetupProfile /></div>}
       </div>
       </div>
     </div>
