@@ -6,15 +6,18 @@ const FRAME_W = 393;
 const FRAME_H = 852;
 
 const MEDS = [
-  { name: "AMLODIPINE 5MG", doctor: "Dr XYZ", reason: "Reason for presciption" },
-  { name: "RAMIPRIL 5MG", doctor: "Dr XYZ", reason: "Reason for presciption" },
+  { name: "AMLODIPINE 5MG", doctor: "Dr XYZ", reason: "Reason for presciption", summary: "Lowers blood pressure by relaxing blood vessels" },
+  { name: "RAMIPRIL 5MG", doctor: "Dr XYZ", reason: "Reason for presciption", summary: "Protects heart and kidneys by reducing strain" },
 ];
 
-function MedCard({ name, doctor, reason }: { name: string; doctor: string; reason: string }) {
+function MedCard({ name, doctor, reason, summary }: { name: string; doctor: string; reason: string; summary: string }) {
   return (
     <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 flex flex-col gap-[16px] items-start pb-[8px] pt-[24px] px-[8px] rounded-[20px] w-full">
       <div className="flex items-center justify-between px-[12px] w-full">
-        <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[21.8px]">{name}</p>
+        <div className="flex flex-col gap-[4px]">
+          <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[21.8px]">{name}</p>
+          <p className="font-['Urbanist',sans-serif] font-normal text-[12px] text-[#434343] leading-[16px]">{summary}</p>
+        </div>
         <img alt="" className="size-[29px]" src={iconDropdown} />
       </div>
       <div
@@ -62,13 +65,13 @@ export const MedicationsDetail = ({ onBack }: { onBack: () => void }): JSX.Eleme
             <div className="flex items-center gap-[12px]">
               <div className="size-[38px] rounded-full bg-[#dd692c] flex items-center justify-center cursor-pointer shrink-0" onClick={onBack}>
                 <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
-                  <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <p className="font-['Urbanist',sans-serif] font-medium text-[36px] text-[#3f2815] leading-[42px]">Medications</p>
             </div>
 
-            <div className="flex flex-col gap-[16px] mt-[16px]">
+            <div className="flex flex-col gap-[16px] mt-[48px]">
               {MEDS.map((med) => (
                 <MedCard key={med.name} {...med} />
               ))}

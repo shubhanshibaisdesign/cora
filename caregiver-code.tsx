@@ -30,7 +30,7 @@ export const CaregiverCode = ({ onBack, onSubmit }: { onBack: () => void; onSubm
           <div className="flex items-center gap-[12px]">
             <div className="size-[38px] rounded-full bg-[#dd692c] flex items-center justify-center cursor-pointer shrink-0" onClick={onBack}>
               <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
-                <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>

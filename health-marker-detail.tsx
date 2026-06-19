@@ -45,13 +45,13 @@ export const HealthMarkerDetail = ({ onBack, title, label, target, value, unit, 
             <div className="flex items-center gap-[12px] pt-[16px]">
               <div className="size-[38px] rounded-full bg-[#dd692c] flex items-center justify-center cursor-pointer shrink-0" onClick={onBack}>
                 <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
-                  <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <p className="font-['Urbanist',sans-serif] font-medium text-[36px] text-[#3f2815] leading-[42px]">{title}</p>
             </div>
 
-            <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 rounded-[20px] w-full mt-[24px]">
+            <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 rounded-[20px] w-full mt-[48px]">
               <div className="flex flex-col items-start pb-[5px] pt-[18px] px-[5px]">
                 <div className="flex items-center justify-between px-[12px] w-full">
                   <div className="flex flex-col gap-[4px]">
