@@ -16,7 +16,6 @@ function MedCard({ name, doctor, reason, summary }: { name: string; doctor: stri
       <div className="flex items-center justify-between px-[12px] w-full">
         <div className="flex flex-col gap-[4px]">
           <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[21.8px]">{name}</p>
-          <p className="font-['Urbanist',sans-serif] font-normal text-[12px] text-[#434343] leading-[16px]">{summary}</p>
         </div>
         <img alt="" className="size-[29px]" src={iconDropdown} />
       </div>
