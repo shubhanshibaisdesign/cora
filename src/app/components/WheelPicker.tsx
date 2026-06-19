@@ -166,12 +166,12 @@ export default function WheelPicker({
               }}
             >
               <span
-                className="font-['Inter:Medium',sans-serif] font-medium text-[#434343] transition-[transform,opacity] duration-150 ease-out"
+                className="font-['Urbanist',sans-serif] font-medium text-[#434343] transition-[transform,opacity] duration-150 ease-out"
                 style={{
-                  fontSize: isCenter ? 18 : 14,
+                  fontSize: 16,
                   transform: `scale(${scale})`,
                   opacity,
-                  fontWeight: isCenter ? 600 : 500,
+                  fontWeight: 500,
                 }}
               >
                 {item}
