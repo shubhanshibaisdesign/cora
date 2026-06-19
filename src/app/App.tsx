@@ -88,7 +88,7 @@ function Focus({ onClick }: { onClick?: () => void }) {
     <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 relative rounded-[20px] shrink-0 w-full cursor-pointer" onClick={onClick}>
       <div className="content-stretch flex flex-col items-start pb-[8px] pt-[18px] px-[8px] relative size-full">
         <div className="content-stretch flex items-center justify-between pl-[12px] relative shrink-0 w-full">
-          <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-start leading-[0] relative shrink-0 w-[122px]">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-start leading-[0] relative shrink-0">
             <div className="flex flex-col font-['Urbanist',sans-serif] font-semibold justify-center relative shrink-0 text-[#3f2815] text-[16px] w-full">
               <p className="leading-[16px]">FOCUS</p>
             </div>
