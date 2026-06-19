@@ -244,13 +244,13 @@ function DailyVitals() {
 
 function FullLifestyleCard({ label, target, status, value, unit, chart, targetRight }: { label: string; target: string; status: string; value: string; unit: string; chart: React.ReactNode; targetRight?: boolean }) {
   return (
-    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible">
-      <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343] whitespace-nowrap overflow-visible">
+    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-hidden">
+      <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343] whitespace-nowrap">
         <div className="flex items-center justify-between text-[12px] w-full z-10">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">{label}</p>
           <p className={`font-['Urbanist',sans-serif] font-medium leading-none${targetRight ? " text-right" : ""}`}>{target}</p>
         </div>
-        <div className="w-full h-[90px] overflow-visible">{chart}</div>
+        <div className="w-full h-[90px]">{chart}</div>
         <div className="flex font-['Urbanist',sans-serif] font-medium items-end justify-between w-full z-10">
           <p className="leading-[12px] text-[12px] text-[#5E8F5B]">{status}</p>
           <div className="flex flex-col gap-[4px] items-end text-right">
