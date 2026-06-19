@@ -1,0 +1,46 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 191 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="pill graphic">
+<path id="noon" d="M155.5 0C175.106 0 191 15.8939 191 35.5C191 55.1061 175.106 71 155.5 71C145.141 71 135.82 66.5625 129.331 59.4854C127.349 57.3235 123.651 57.3235 121.669 59.4854C115.18 66.5625 105.859 71 95.5 71C85.1413 71 75.8202 66.5625 69.3311 59.4854C67.3487 57.3235 63.6513 57.3235 61.6689 59.4854C55.1798 66.5625 45.8587 71 35.5 71C15.8939 71 0 55.1061 0 35.5C0 15.8939 15.8939 0 35.5 0C45.8585 0 55.1798 4.43717 61.669 11.5139C63.6514 13.6758 67.3486 13.6758 69.331 11.5139C75.8202 4.43716 85.1415 0 95.5 0C105.859 0 115.18 4.43717 121.669 11.5139C123.651 13.6758 127.349 13.6758 129.331 11.5139C135.82 4.43716 145.142 0 155.5 0Z" fill="var(--fill-0, #DD692C)" fill-opacity="0.2"/>
+<g id="Group 6">
+<circle id="Ellipse 7" cx="96.1434" cy="35.7736" r="9.93455" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4"/>
+<g id="Group 2">
+<path id="Line 4" d="M96.5607 23.2521L96.5607 22" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+<path id="Line 5" d="M96.5607 49.1299L96.5607 47.8777" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+</g>
+<g id="Group 3">
+<path id="Line 4_2" d="M84.2521 35.5691L83 35.5691" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+<path id="Line 5_2" d="M110.13 35.569L108.878 35.569" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+</g>
+<g id="Group 4">
+<path id="Line 4_3" d="M87.8614 44.2742L86.976 45.1596" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+<path id="Line 5_3" d="M106.16 25.976L105.274 26.8614" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+</g>
+<g id="Group 5">
+<path id="Line 4_4" d="M105.274 44.2684L106.16 45.1538" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+<path id="Line 5_4" d="M86.976 25.9701L87.8614 26.8555" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linecap="round"/>
+</g>
+</g>
+<g id="sun">
+<g id="Ellipse 7_2">
+<mask id="path-11-inside-1_0_144" fill="white">
+<path d="M45.6218 40.7736C45.6218 38.0062 44.5224 35.3521 42.5656 33.3953C40.6087 31.4384 37.9547 30.339 35.1872 30.339C32.4198 30.339 29.7658 31.4384 27.8089 33.3953C25.852 35.3521 24.7527 38.0062 24.7527 40.7736L35.1872 40.7736H45.6218Z"/>
+</mask>
+<path d="M45.6218 40.7736C45.6218 38.0062 44.5224 35.3521 42.5656 33.3953C40.6087 31.4384 37.9547 30.339 35.1872 30.339C32.4198 30.339 29.7658 31.4384 27.8089 33.3953C25.852 35.3521 24.7527 38.0062 24.7527 40.7736L35.1872 40.7736H45.6218Z" stroke="var(--stroke-0, #DD692C)" stroke-width="2" mask="url(#path-11-inside-1_0_144)"/>
+</g>
+<g id="Group 2_2">
+<path id="Line 4_5" d="M35.6046 28.2521L35.6046 27" stroke="var(--stroke-0, #DD692C)" stroke-linecap="round"/>
+</g>
+<g id="Group 3_2">
+<path id="Line 4_6" d="M23.2521 38.2253L22 38.2253" stroke="var(--stroke-0, #DD692C)" stroke-linecap="round"/>
+<path id="Line 5_5" d="M49.1298 38.2252L47.8777 38.2252" stroke="var(--stroke-0, #DD692C)" stroke-linecap="round"/>
+</g>
+<g id="Group 4_2">
+<path id="Line 5_6" d="M45.2036 30.976L44.3182 31.8615" stroke="var(--stroke-0, #DD692C)" stroke-linecap="round"/>
+</g>
+<g id="Group 5_2">
+<path id="Line 5_7" d="M26.0199 30.9701L26.9053 31.8555" stroke="var(--stroke-0, #DD692C)" stroke-linecap="round"/>
+</g>
+</g>
+<path id="night" d="M152.965 41.179C157.364 43.7412 162.998 42.2694 165.547 37.8918C166.08 36.9761 166.437 36.0059 166.626 35.0205C163.739 37.4821 159.675 37.8416 156.196 35.8153C152.717 33.789 150.865 29.9839 151.582 26.2581C150.818 26.9092 150.15 27.6977 149.617 28.6133C147.067 32.991 148.566 38.6168 152.965 41.179Z" stroke="var(--stroke-0, #434343)" stroke-opacity="0.4" stroke-linejoin="round"/>
+</g>
+</svg>
