@@ -1030,7 +1030,7 @@ function RightMeasurements() {
 }
 
 function TickColumn({ flip = false }: { flip?: boolean }) {
-  const rows = 42;
+  const rows = 27;
   return (
     <div
       className="flex flex-col items-start gap-[7px] pointer-events-none"
