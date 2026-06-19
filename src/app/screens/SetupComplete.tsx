@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import Component09SetupProfile from "../../imports/09SetupProfile";
 
@@ -19,12 +18,8 @@ export default function SetupComplete() {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-screen h-screen flex items-center justify-center bg-gray-100 overflow-hidden"
+    <div
+      className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden"
     >
       <div
         style={{
@@ -36,6 +31,6 @@ export default function SetupComplete() {
       >
         <Component09SetupProfile />
       </div>
-    </motion.div>
+    </div>
   );
 }

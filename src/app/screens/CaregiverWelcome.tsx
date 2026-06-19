@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import svgPaths from "../../imports/09SetupProfile/svg-01uh8bv0zi";
 import imgFrame8217 from "../../imports/09SetupProfile/f602ce354977b09d0217706dbe5610bd8b993ccd.png";
@@ -81,12 +80,8 @@ export default function CaregiverWelcome() {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-screen h-screen flex items-center justify-center bg-gray-100 overflow-hidden"
+    <div
+      className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden"
     >
       <div
         style={{
@@ -119,6 +114,6 @@ export default function CaregiverWelcome() {
           <div aria-hidden className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[44px]" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

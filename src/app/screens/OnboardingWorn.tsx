@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Component04OnboardingCoraIntro from "../../imports/04OnboardingCoraIntro-1";
@@ -26,12 +25,8 @@ export default function OnboardingWorn() {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-screen h-screen flex items-center justify-center bg-gray-100 overflow-hidden"
+    <div
+      className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden"
     >
       <div
         style={{
@@ -43,6 +38,6 @@ export default function OnboardingWorn() {
       >
         <Component04OnboardingCoraIntro onGoogleClick={() => navigate("/pairing")} />
       </div>
-    </motion.div>
+    </div>
   );
 }

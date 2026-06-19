@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Component01SetupProfile from "../../imports/01SetupProfile";
@@ -21,12 +20,8 @@ export default function SetupProfile() {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-screen h-screen flex items-center justify-center bg-gray-100 overflow-hidden"
+    <div
+      className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden"
     >
       <div
         style={{
@@ -38,6 +33,6 @@ export default function SetupProfile() {
       >
         <Component01SetupProfile onStartJourney={() => navigate("/setup-profile-dob")} />
       </div>
-    </motion.div>
+    </div>
   );
 }
