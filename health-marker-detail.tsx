@@ -55,7 +55,7 @@ export const HealthMarkerDetail = ({ onBack, title, label, target, value, unit, 
               <div className="flex flex-col items-start pb-[5px] pt-[18px] px-[5px]">
                 <div className="flex items-center justify-between px-[12px] w-full">
                   <div className="flex flex-col gap-[4px]">
-                    <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[16px]">FOCUS</p>
+                    <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[16px]">HEALTH MARKERS</p>
                     <p className="font-['Urbanist',sans-serif] font-normal text-[12px] text-[#434343] leading-[16px]">Last synced 6 mins ago</p>
                   </div>
                   <div className="relative shrink-0 size-[39px]">
