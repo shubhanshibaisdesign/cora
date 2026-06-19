@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import svgPaths from "./src/imports/01Homepage/svg-bf1xpow9k5";
 import bgGradient from "./bg-gradient.png";
 
+const FRAME_W = 393;
+const FRAME_H = 852;
 const TABS = ["Today", "Daily", "Weekly", "Monthly"] as const;
 
 interface HealthMarkerDetailProps {
@@ -18,10 +20,18 @@ interface HealthMarkerDetailProps {
 
 export const HealthMarkerDetail = ({ onBack, title, label, target, value, unit, status, chart, paragraphs }: HealthMarkerDetailProps): JSX.Element => {
   const [activeTab, setActiveTab] = useState<typeof TABS[number]>("Weekly");
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    function update() { setScale(Math.min(window.innerWidth / FRAME_W, window.innerHeight / FRAME_H, 1)); }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-[#F0EAE3] flex items-center justify-center py-8">
-      <div className="bg-[#fdfdfd] relative rounded-[44px] w-[393px] h-[852px] overflow-hidden shadow-2xl flex flex-col">
+    <div className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden">
+      <div style={{ width: FRAME_W, height: FRAME_H, transform: `scale(${scale})`, transformOrigin: "center center" }}>
+      <div className="bg-[#fdfdfd] relative rounded-[44px] w-full h-full overflow-hidden shadow-2xl flex flex-col">
         <div className="h-[48px] shrink-0" />
 
         <div className="-translate-x-1/2 absolute blur-[200px] h-[457px] left-1/2 rounded-[89px] top-[180px] w-[344px] pointer-events-none z-0">
@@ -105,6 +115,7 @@ export const HealthMarkerDetail = ({ onBack, title, label, target, value, unit, 
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

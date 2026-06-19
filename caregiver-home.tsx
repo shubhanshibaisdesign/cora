@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
+
+const FRAME_W = 393;
+const FRAME_H = 852;
 import { BloodPressureWave } from "./blood-pressure-wave";
 import { EcgWave } from "./ecg-wave";
 import { FluidWave } from "./fluid-wave";
@@ -273,10 +276,18 @@ const NAV_TABS = [
 
 export const CaregiverHome = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState<"home" | "care" | "scan" | "profile">("home");
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    function update() { setScale(Math.min(window.innerWidth / FRAME_W, window.innerHeight / FRAME_H, 1)); }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-[#F0EAE3] flex items-center justify-center py-8">
-      <div className="bg-[#fdfdfd] relative rounded-[44px] w-[393px] h-[852px] overflow-hidden shadow-2xl flex flex-col">
+    <div className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden">
+      <div style={{ width: FRAME_W, height: FRAME_H, transform: `scale(${scale})`, transformOrigin: "center center" }}>
+      <div className="bg-[#fdfdfd] relative rounded-[44px] w-full h-full overflow-hidden shadow-2xl flex flex-col">
         <div className="h-[48px] shrink-0" />
 
         <div className="-translate-x-1/2 absolute blur-[200px] h-[457px] left-1/2 rounded-[89px] top-[252px] w-[344px] pointer-events-none z-0">
@@ -357,6 +368,7 @@ export const CaregiverHome = (): JSX.Element => {
         </div>
 
         <div aria-hidden className="absolute border border-[#fdfdfd] border-solid inset-0 pointer-events-none rounded-[44px]" />
+      </div>
       </div>
     </div>
   );

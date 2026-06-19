@@ -1,16 +1,28 @@
 import { useState, useEffect } from "react";
 
+const FRAME_W = 393;
+const FRAME_H = 852;
+
 export const CaregiverCode = ({ onBack, onSubmit }: { onBack: () => void; onSubmit?: () => void }): JSX.Element => {
   const [code, setCode] = useState("");
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     const t = setTimeout(() => setCode("A00-B11"), 1000);
     return () => clearTimeout(t);
   }, []);
 
+  useEffect(() => {
+    function update() { setScale(Math.min(window.innerWidth / FRAME_W, window.innerHeight / FRAME_H, 1)); }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#F0EAE3] flex items-center justify-center py-8">
-      <div className="bg-[#fdfdfd] relative rounded-[44px] w-[393px] h-[852px] overflow-hidden shadow-2xl flex flex-col">
+    <div className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden">
+      <div style={{ width: FRAME_W, height: FRAME_H, transform: `scale(${scale})`, transformOrigin: "center center" }}>
+      <div className="bg-[#fdfdfd] relative rounded-[44px] w-full h-full overflow-hidden shadow-2xl flex flex-col">
         <div className="h-[48px] shrink-0" />
 
         <div className="flex-1 px-[20px] flex flex-col">
@@ -40,6 +52,7 @@ export const CaregiverCode = ({ onBack, onSubmit }: { onBack: () => void; onSubm
             <p className="font-['Urbanist',sans-serif] font-normal text-[16px] text-[#fdfdfd] leading-[21.8px]">Submit</p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

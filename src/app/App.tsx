@@ -287,12 +287,30 @@ function Lifestyle() {
 
 // ─── Homepage (with tabs) ─────────────────────────────────────────────────────
 
+const FRAME_W = 393;
+const FRAME_H = 852;
+
+function useFrameScale() {
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    function update() {
+      setScale(Math.min(window.innerWidth / FRAME_W, window.innerHeight / FRAME_H, 1));
+    }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return scale;
+}
+
 function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string) => void; defaultTab?: "home" | "care" | "scan" | "profile" }) {
   const [activeTab, setActiveTab] = useState<"home" | "care" | "scan" | "profile">(defaultTab);
+  const scale = useFrameScale();
 
   return (
-    <div className="min-h-screen bg-[#F0EAE3] flex items-center justify-center py-8">
-      <div className="bg-[#fdfdfd] relative rounded-[44px] w-[393px] h-[852px] overflow-hidden shadow-2xl flex flex-col">
+    <div className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden">
+      <div style={{ width: FRAME_W, height: FRAME_H, transform: `scale(${scale})`, transformOrigin: "center center" }}>
+      <div className="bg-[#fdfdfd] relative rounded-[44px] w-full h-full overflow-hidden shadow-2xl flex flex-col">
         <div className="h-[48px] shrink-0" />
         <div className="-translate-x-1/2 absolute blur-[200px] h-[457px] left-1/2 rounded-[89px] top-[252px] w-[344px] pointer-events-none z-0">
           <div className="absolute inset-0 overflow-hidden rounded-[89px]">
@@ -374,6 +392,7 @@ function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string)
           </LayoutGroup>
         </div>
         <div aria-hidden className="absolute border border-[#fdfdfd] border-solid inset-0 pointer-events-none rounded-[44px]" />
+      </div>
       </div>
     </div>
   );
@@ -482,9 +501,12 @@ export default function App() {
     return <Homepage onNavigate={(s) => setScreen(s as Screen)} defaultTab={screen === "homepage-care" ? "care" : "home"} />;
   }
 
+  const scale = useFrameScale();
+
   return (
-    <div className="min-h-screen bg-[#F0EAE3] flex items-center justify-center py-8">
-      <div className="relative w-[393px] h-[852px] rounded-[44px] overflow-hidden shadow-2xl">
+    <div className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden">
+      <div style={{ width: FRAME_W, height: FRAME_H, transform: `scale(${scale})`, transformOrigin: "center center" }}>
+      <div className="relative w-full h-full rounded-[44px] overflow-hidden shadow-2xl">
         <AnimatePresence mode="wait">
           {screen === "intro" && (
             <motion.div key="intro" className="absolute inset-0" initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: "easeInOut" }}>
@@ -547,6 +569,7 @@ export default function App() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
       </div>
     </div>
   );
