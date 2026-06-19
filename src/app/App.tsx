@@ -7,6 +7,7 @@ import { CarePage } from "../../care";
 import { PatchPage } from "../../patch";
 import { BloodPressureDetail } from "../../blood-pressure-detail";
 import { MedicationsDetail } from "../../medications-detail";
+import { HealthMarkerDetail } from "../../health-marker-detail";
 import { CaregiverCode } from "../../caregiver-code";
 import { CaregiverWelcome } from "../../caregiver-welcome";
 import { CaregiverHome } from "../../caregiver-home";
@@ -60,6 +61,9 @@ type Screen =
   | "homepage-care"
   | "bp-detail"
   | "meds-detail"
+  | "ecg-detail"
+  | "fluid-detail"
+  | "ldl-detail"
   | "caregiver-code"
   | "caregiver-welcome"
   | "caregiver-home";
@@ -117,9 +121,9 @@ function Focus({ onClick }: { onClick?: () => void }) {
   );
 }
 
-function EcgCard() {
+function EcgCard({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible">
+    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible cursor-pointer" onClick={onClick}>
       <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343]">
         <div className="flex items-center justify-between text-[12px] w-full whitespace-nowrap z-10">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">ECG</p>
@@ -140,9 +144,9 @@ function EcgCard() {
   );
 }
 
-function FluidRetentionCard() {
+function FluidRetentionCard({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible">
+    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full overflow-visible cursor-pointer" onClick={onClick}>
       <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343] whitespace-nowrap">
         <div className="flex items-center justify-between text-[12px] w-full z-10">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">FLUID RETENTION</p>
@@ -163,9 +167,9 @@ function FluidRetentionCard() {
   );
 }
 
-function LdlCholesterolCard() {
+function LdlCholesterolCard({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full">
+    <div className="bg-[#fdfdfd] h-[218px] relative rounded-[18px] shrink-0 w-full cursor-pointer" onClick={onClick}>
       <div className="flex flex-col items-start justify-between py-[24px] px-[14px] size-full text-[#434343] whitespace-nowrap">
         <div className="flex items-center justify-between text-[12px] w-full">
           <p className="font-['Urbanist',sans-serif] font-normal leading-[16px]">LDL CHOLESTEROL</p>
@@ -184,7 +188,7 @@ function LdlCholesterolCard() {
   );
 }
 
-function HealthMarkers() {
+function HealthMarkers({ onNavigate }: { onNavigate: (s: string) => void }) {
   return (
     <div className="bg-[rgba(217,217,217,0.3)] backdrop-blur-[40px] border border-white/30 relative rounded-[20px] shrink-0 w-full overflow-hidden">
       <div className="flex flex-col gap-[16px] items-start pb-[5px] pt-[18px] px-[5px]">
@@ -193,9 +197,9 @@ function HealthMarkers() {
           <img alt="" className="size-[39px]" src={arrowIcon} />
         </div>
         <div className="flex flex-col gap-[8px] w-full">
-          <EcgCard />
-          <FluidRetentionCard />
-          <LdlCholesterolCard />
+          <EcgCard onClick={() => onNavigate("ecg-detail")} />
+          <FluidRetentionCard onClick={() => onNavigate("fluid-detail")} />
+          <LdlCholesterolCard onClick={() => onNavigate("ldl-detail")} />
         </div>
       </div>
     </div>
@@ -310,7 +314,7 @@ function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string)
                   <div className="flex flex-col gap-[16px] items-start mt-[48px] w-full">
                     <Greeting />
                     <Focus onClick={() => onNavigate("bp-detail")} />
-                    <HealthMarkers />
+                    <HealthMarkers onNavigate={onNavigate} />
                     <DailyVitals />
                     <Lifestyle />
                   </div>
@@ -404,6 +408,66 @@ export default function App() {
   }
   if (screen === "meds-detail") {
     return <MedicationsDetail onBack={() => setScreen("homepage-care")} />;
+  }
+  if (screen === "ecg-detail") {
+    return (
+      <HealthMarkerDetail
+        onBack={() => setScreen("homepage")}
+        title="ECG"
+        label="ECG"
+        target="Afib risk : Low"
+        value="72"
+        unit="bpm"
+        status="Sinus Rhythm in range"
+        chart={<EcgWave />}
+        paragraphs={[
+          "An electrocardiogram (ECG) measures the electrical activity of your heart with each beat. It reveals the rhythm, rate, and timing of electrical impulses as they travel through the heart muscle.",
+          "Cora uses optical and impedance sensors in the patch to reconstruct a single-lead ECG continuously throughout the day, giving you a real-time window into your heart rhythm without needing electrodes or a clinic visit.",
+          "A sinus rhythm at 72 bpm means your heart's natural pacemaker is firing normally and your heart rate is comfortably within the healthy range. This is a strong indicator that your cardiac electrical system is functioning well.",
+          "Cora also monitors for atrial fibrillation (AFib), an irregular rhythm that can increase stroke risk. Your current AFib risk is low, which means no irregular patterns have been detected in your recent readings.",
+        ]}
+      />
+    );
+  }
+  if (screen === "fluid-detail") {
+    return (
+      <HealthMarkerDetail
+        onBack={() => setScreen("homepage")}
+        title="Fluid Retention"
+        label="FLUID RETENTION"
+        target="Target: ≤ +2.0 kg / day"
+        value="+1.2"
+        unit="kg"
+        status="In Range"
+        chart={<FluidWave />}
+        paragraphs={[
+          "Fluid retention measures how much extra fluid your body is holding compared to your baseline. For people managing heart conditions, tracking fluid balance is critical because excess fluid can signal that the heart is struggling to pump effectively.",
+          "Cora estimates fluid retention through bioimpedance sensors in the patch, which measure how electrical signals pass through your tissue. Higher fluid levels change the impedance pattern, allowing Cora to detect shifts before they become symptomatic.",
+          "Your current reading of +1.2 kg is within the healthy target of ≤ +2.0 kg per day. This means your body is managing fluid balance well and there are no signs of concerning fluid buildup.",
+          "Sudden increases in fluid retention can be an early warning sign of heart failure exacerbation. By catching these trends early, you and your care team can adjust medications or lifestyle before symptoms like swelling or shortness of breath appear.",
+        ]}
+      />
+    );
+  }
+  if (screen === "ldl-detail") {
+    return (
+      <HealthMarkerDetail
+        onBack={() => setScreen("homepage")}
+        title="LDL Cholesterol"
+        label="LDL CHOLESTEROL"
+        target="Last panel : 9 May"
+        value="72"
+        unit="mg/dL"
+        status="In Range"
+        chart={<LdlWave />}
+        paragraphs={[
+          "LDL cholesterol, often called 'bad' cholesterol, is a key marker for cardiovascular risk. High levels of LDL can lead to plaque buildup in your arteries, narrowing them and increasing the risk of heart attack or stroke.",
+          "Unlike continuous metrics, LDL cholesterol is measured through periodic blood panels. Your most recent panel on 9 May showed a reading of 72 mg/dL, which is well within the optimal range for cardiovascular health.",
+          "For people with existing heart conditions, guidelines recommend keeping LDL below 100 mg/dL, with some cardiologists targeting below 70 mg/dL for high-risk patients. Your current level puts you in an excellent position.",
+          "Cora tracks your LDL trend over time so you can see how diet, exercise, and medications are affecting your levels. Consistent readings in the healthy range like yours suggest your current approach is working well.",
+        ]}
+      />
+    );
   }
   if (screen === "caregiver-code") {
     return <CaregiverCode onBack={() => setScreen("pairing")} onSubmit={() => setScreen("caregiver-welcome")} />;

@@ -44,8 +44,8 @@ function CurrentPatch() {
           </div>
           <div className="h-px bg-[rgba(0,0,0,0.08)] w-full my-[16px]" />
           <div className="flex items-center justify-between">
-            <p className="font-['Urbanist',sans-serif] font-normal text-[16px] text-[#434343] leading-[16px]">Adhesion</p>
-            <p className="font-['Urbanist',sans-serif] font-normal text-[16px] text-[#2f8a0e] leading-[16px]">Strong</p>
+            <p className="font-['Urbanist',sans-serif] font-normal text-[12px] text-[#434343] leading-[16px]">Adhesion</p>
+            <p className="font-['Urbanist',sans-serif] font-normal text-[12px] text-[#2f8a0e] leading-[16px]">Strong</p>
           </div>
         </div>
       </div>
