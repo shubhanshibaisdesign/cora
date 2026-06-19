@@ -13,6 +13,7 @@ import SetupProfileHeight from "./screens/SetupProfileHeight";
 import SetupProfileWeight from "./screens/SetupProfileWeight";
 import SetupProfileFocus from "./screens/SetupProfileFocus";
 import SetupComplete from "./screens/SetupComplete";
+import CaregiverCode from "./screens/CaregiverCode";
 
 export const router = createBrowserRouter([
   { path: "/", Component: OnboardingIntro },
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
   { path: "/setup-profile-weight", Component: SetupProfileWeight },
   { path: "/setup-profile-focus", Component: SetupProfileFocus },
   { path: "/setup-complete", Component: SetupComplete },
+  { path: "/caregiver-code", Component: CaregiverCode },
   {
     path: "*",
     Component: () => (

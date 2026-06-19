@@ -65,11 +65,11 @@ function RightSide() {
   );
 }
 
-function AppleButton() {
+function AppleButton({ label, onClick }: { label: string; onClick?: () => void }) {
   return (
-    <div className="absolute bg-[#dd692c] flex items-center justify-center h-[52px] left-0 overflow-clip rounded-[41px] top-[693px] w-[353px]" data-name="Apple Button">
+    <div onClick={onClick} className="absolute bg-[#dd692c] flex items-center justify-center h-[52px] left-0 overflow-clip rounded-[41px] top-[693px] w-[353px] cursor-pointer" data-name="Apple Button">
       <div className="-translate-x-1/2 -translate-y-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute flex flex-col font-['Urbanist:Regular',sans-serif] font-normal justify-center leading-[0] left-[calc(50%-0.5px)] text-[#fdfdfd] text-[16px] text-center top-[calc(50%+0.5px)] whitespace-nowrap">
-        <p className="leading-[21.8px]">Start Pairing</p>
+        <p className="leading-[21.8px]">{label}</p>
       </div>
     </div>
   );
@@ -463,10 +463,12 @@ function DeviceImage() {
 const DIAL_STATES = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","35","36","37","38","39","40","41","42","43","44","45","46","47"] as const;
 type DialState = typeof DIAL_STATES[number];
 
-function ContentArea({ onComplete }: { onComplete?: () => void }) {
+function ContentArea({ onComplete, onSupportingClick }: { onComplete?: () => void; onSupportingClick?: () => void }) {
+  const [pairing, setPairing] = useState(false);
   const [dialState, setDialState] = useState<DialState>("1");
 
   useEffect(() => {
+    if (!pairing) return;
     let i = 0;
     const id = setInterval(() => {
       i += 1;
@@ -478,12 +480,15 @@ function ContentArea({ onComplete }: { onComplete?: () => void }) {
       setDialState(DIAL_STATES[i]);
     }, 80);
     return () => clearInterval(id);
-  }, [onComplete]);
+  }, [pairing, onComplete]);
 
   return (
     <div className="h-[774px] relative shrink-0 w-full" data-name="ContentArea">
-      <AppleButton />
-      <div className="-translate-x-1/2 -translate-y-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute flex flex-col font-['Urbanist:Regular',sans-serif] font-normal justify-center leading-[0] left-1/2 text-[16px] text-black text-center top-[calc(50%+275.5px)] whitespace-nowrap">
+      <AppleButton
+        label={pairing ? "Device Pairing" : "Start Pairing"}
+        onClick={() => { if (!pairing) setPairing(true); }}
+      />
+      <div className="-translate-x-1/2 -translate-y-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute flex flex-col font-['Urbanist:Regular',sans-serif] font-normal justify-center leading-[0] left-1/2 text-[16px] text-black text-center top-[calc(50%+275.5px)] whitespace-nowrap cursor-pointer" onClick={onSupportingClick}>
         <p className="leading-[21.8px]">Supporting someone</p>
       </div>
       <Gradient />
@@ -495,7 +500,7 @@ function ContentArea({ onComplete }: { onComplete?: () => void }) {
   );
 }
 
-export default function Component01PairingCoraIntro({ onComplete }: { onComplete?: () => void } = {}) {
+export default function Component01PairingCoraIntro({ onComplete, onSupportingClick }: { onComplete?: () => void; onSupportingClick?: () => void } = {}) {
   return (
     <div className="bg-[#fafafa] relative rounded-[44px] size-full" data-name="01 · Pairing — Cora intro">
       <div className="content-stretch flex flex-col gap-[13px] items-center overflow-clip px-[20px] relative rounded-[inherit] size-full">
@@ -504,7 +509,7 @@ export default function Component01PairingCoraIntro({ onComplete }: { onComplete
           <LeftSide />
           <RightSide />
         </div>
-        <ContentArea onComplete={onComplete} />
+        <ContentArea onComplete={onComplete} onSupportingClick={onSupportingClick} />
       </div>
       <div aria-hidden className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[44px]" />
     </div>

@@ -65,7 +65,7 @@ function RightSide() {
 
 function PairingButton({ onClick, label }: { onClick?: () => void; label?: string }) {
   return (
-    <div onClick={onClick} className="absolute bg-[#dd692c] flex items-center justify-center h-[44px] left-0 overflow-clip rounded-[41px] top-[694px] w-[353px] cursor-pointer" data-name="Pairing Button">
+    <div onClick={onClick} className="absolute bg-[#dd692c] flex items-center justify-center h-[52px] left-0 overflow-clip rounded-[41px] top-[694px] w-[353px] cursor-pointer" data-name="Pairing Button">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex flex-col font-['Urbanist:Regular',sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[#fdfdfd] text-[16px] text-center whitespace-nowrap">
         <p className="leading-[21.8px]">{label ?? "Skip for now"}</p>
       </div>

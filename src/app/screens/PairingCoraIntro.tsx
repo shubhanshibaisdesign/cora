@@ -41,7 +41,7 @@ export default function PairingCoraIntro() {
           transformOrigin: "center center",
         }}
       >
-        <Component01PairingCoraIntro onComplete={handleComplete} />
+        <Component01PairingCoraIntro onComplete={handleComplete} onSupportingClick={() => navigate("/caregiver-code")} />
       </div>
     </motion.div>
   );
