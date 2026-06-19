@@ -177,7 +177,7 @@ function ScrollColumn({ items, initial }: { items: (string | number)[]; initial:
                 scrollSnapAlign: "start",
                 fontFamily: "'Urbanist', sans-serif",
                 opacity,
-                fontWeight: isCenter ? 600 : 400,
+                fontWeight: 500,
                 color: isCenter ? "#434343" : "rgba(0,0,0,0.35)",
                 transition: "all 0.1s ease",
               }}

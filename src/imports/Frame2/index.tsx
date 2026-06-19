@@ -10,9 +10,9 @@ export default function Frame({ className, property1 = "Default", label = "Male"
   return (
     <button
       onClick={onClick}
-      className={className || `relative rounded-[41px] w-[353px] ${isVariant2 ? "bg-[rgba(221,105,44,0.2)]" : ""}`}
+      className={`h-[44px] ${className || `relative rounded-[41px] w-[353px] ${isVariant2 ? "bg-[rgba(221,105,44,0.2)]" : ""}`}`}
     >
-      <div className="content-stretch flex items-center overflow-clip px-[25px] py-[20px] relative rounded-[inherit] size-full">
+      <div className="content-stretch flex items-center overflow-clip px-[25px] relative rounded-[inherit] size-full">
         <div className={`[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex flex-col font-["Urbanist:Regular",sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[16px] text-left whitespace-nowrap ${isVariant2 ? "text-[#434343]" : "text-[#434343]"}`}>
           <p className="leading-[21.8px]">{label}</p>
         </div>
