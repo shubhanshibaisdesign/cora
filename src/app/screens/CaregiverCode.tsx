@@ -63,7 +63,7 @@ export default function CaregiverCode() {
             <div className="flex-1" />
             <div
               className="bg-[#dd692c] h-[52px] rounded-[41px] w-full flex items-center justify-center cursor-pointer mb-[40px]"
-              onClick={() => navigate("/pairing")}
+              onClick={() => navigate("/caregiver-welcome")}
             >
               <p className="font-['Urbanist',sans-serif] font-normal text-[16px] text-[#fdfdfd] leading-[21.8px]">Submit</p>
             </div>
