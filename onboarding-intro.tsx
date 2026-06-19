@@ -6,6 +6,7 @@ export const OnboardingIntro = (): JSX.Element => {
       <img
         alt=""
         className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[44px] size-full"
+        style={{ mixBlendMode: "multiply" }}
         src={onboardingBg}
       />
 
@@ -14,6 +15,7 @@ export const OnboardingIntro = (): JSX.Element => {
           <img
             alt=""
             className="absolute inset-0 max-w-none object-cover size-full"
+            style={{ mixBlendMode: "multiply" }}
             src={onboardingBg}
           />
         </div>
