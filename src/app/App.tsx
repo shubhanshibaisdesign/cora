@@ -402,6 +402,7 @@ export function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: 
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>("intro");
+  const scale = useFrameScale();
 
   useEffect(() => {
     if (screen === "intro") {
@@ -500,8 +501,6 @@ export default function App() {
   if (screen === "homepage" || screen === "homepage-care") {
     return <Homepage onNavigate={(s) => setScreen(s as Screen)} defaultTab={screen === "homepage-care" ? "care" : "home"} />;
   }
-
-  const scale = useFrameScale();
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-black overflow-hidden">
