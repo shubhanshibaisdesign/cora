@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import svgPaths from "../../imports/09SetupProfile/svg-01uh8bv0zi";
 import imgFrame8217 from "../../imports/09SetupProfile/f602ce354977b09d0217706dbe5610bd8b993ccd.png";
 
@@ -67,6 +68,7 @@ function RightSide() {
 }
 
 export default function CaregiverWelcome() {
+  const navigate = useNavigate();
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -78,6 +80,11 @@ export default function CaregiverWelcome() {
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => navigate("/caregiver-home"), 2000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div

@@ -309,8 +309,14 @@ export default function HomepageScreen() {
             ) : activeTab === "scan" ? (
               <PatchPage />
             ) : (
-              <div className="flex-1 flex items-center justify-center px-[20px]">
+              <div className="flex-1 flex flex-col items-center justify-center gap-[24px] px-[20px]">
                 <p className="font-['Urbanist',sans-serif] font-medium text-[20px] text-[#434343]">Profile</p>
+                <button
+                  onClick={() => navigate("/caregiver-home")}
+                  className="bg-[#dd692c] rounded-[41px] px-[32px] py-[14px] font-['Urbanist',sans-serif] font-medium text-[16px] text-[#fdfdfd] cursor-pointer"
+                >
+                  Switch to Caregiver View
+                </button>
               </div>
             )}
           </motion.div>

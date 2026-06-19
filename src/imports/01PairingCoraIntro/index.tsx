@@ -509,6 +509,9 @@ export default function Component01PairingCoraIntro({ onComplete, onSupportingCl
           <LeftSide />
           <RightSide />
         </div>
+        <p className="shrink-0 font-['Urbanist:Regular',sans-serif] text-[16px] text-[#dd692c] text-center">
+          Please turn on your Bluetooth device
+        </p>
         <ContentArea onComplete={onComplete} onSupportingClick={onSupportingClick} />
       </div>
       <div aria-hidden className="absolute border border-[#e5e5e5] border-solid inset-0 pointer-events-none rounded-[44px]" />

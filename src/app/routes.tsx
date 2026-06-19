@@ -16,6 +16,7 @@ import SetupComplete from "./screens/SetupComplete";
 import CaregiverCode from "./screens/CaregiverCode";
 import CaregiverWelcome from "./screens/CaregiverWelcome";
 import HomepageScreen from "./screens/Homepage";
+import CaregiverHomeScreen from "./screens/CaregiverHome";
 
 export const router = createBrowserRouter([
   { path: "/", Component: OnboardingIntro },
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
   { path: "/homepage", Component: HomepageScreen },
   { path: "/caregiver-code", Component: CaregiverCode },
   { path: "/caregiver-welcome", Component: CaregiverWelcome },
+  { path: "/caregiver-home", Component: CaregiverHomeScreen },
   {
     path: "*",
     Component: () => (

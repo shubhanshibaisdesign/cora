@@ -274,7 +274,7 @@ const NAV_TABS = [
   { id: "profile" as const, label: "Profile", icon: navUser, activeIcon: navUserActive },
 ];
 
-export const CaregiverHome = (): JSX.Element => {
+export const CaregiverHome = ({ onSwitchToPatient }: { onSwitchToPatient?: () => void } = {}): JSX.Element => {
   const [activeTab, setActiveTab] = useState<"home" | "care" | "scan" | "profile">("home");
   const [scale, setScale] = useState(1);
   useEffect(() => {
@@ -341,10 +341,18 @@ export const CaregiverHome = (): JSX.Element => {
                 </div>
               </div>
             ) : (
-              <div className="flex-1 flex items-center justify-center px-[20px]">
+              <div className="flex-1 flex flex-col items-center justify-center gap-[24px] px-[20px]">
                 <p className="font-['Urbanist',sans-serif] font-medium text-[20px] text-[#434343]">
                   {activeTab === "scan" ? "Patch" : "Profile"}
                 </p>
+                {activeTab === "profile" && (
+                  <button
+                    onClick={onSwitchToPatient}
+                    className="bg-[#dd692c] rounded-[41px] px-[32px] py-[14px] font-['Urbanist',sans-serif] font-medium text-[16px] text-[#fdfdfd] cursor-pointer"
+                  >
+                    Switch to Patient View
+                  </button>
+                )}
               </div>
             )}
           </motion.div>
