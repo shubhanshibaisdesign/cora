@@ -52,7 +52,7 @@ export const MedicationsDetail = ({ onBack }: { onBack: () => void }): JSX.Eleme
                   <path d="M8.5 1L1.5 8L8.5 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[16px]">MEDICATIONS</p>
+              <p className="font-['Urbanist',sans-serif] font-semibold text-[16px] text-[#3f2815] leading-[16px]">Medications</p>
             </div>
 
             <div className="flex flex-col gap-[16px] mt-[16px]">
