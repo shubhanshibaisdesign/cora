@@ -1,4 +1,5 @@
 import onboardingBg from "./onboarding-bg.png";
+import onboardingDown from "./onboarding-down.png";
 
 export const OnboardingIntro = (): JSX.Element => {
   return (
@@ -9,15 +10,12 @@ export const OnboardingIntro = (): JSX.Element => {
         src={onboardingBg}
       />
 
-      <div className="absolute left-0 size-[481px] top-[calc(100%-260px)] pointer-events-none">
-        <div className="rotate-180 size-full">
-          <img
-            alt=""
-            className="absolute inset-0 max-w-none object-cover size-full"
-            style={{ mixBlendMode: "multiply" }}
-            src={onboardingBg}
-          />
-        </div>
+      <div className="absolute left-0 bottom-0 w-full pointer-events-none">
+        <img
+          alt=""
+          className="w-full object-contain"
+          src={onboardingDown}
+        />
       </div>
 
       <p className="absolute left-1/2 -translate-x-1/2 bottom-[160px] font-['Urbanist',sans-serif] font-medium text-[72px] leading-none text-[#dd692c] whitespace-nowrap">
