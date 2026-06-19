@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import { OnboardingIntro } from "../../onboarding-intro";
 import { OnboardingCora } from "../../onboarding-cora";
 import { GoogleAuth } from "../../google-auth";
@@ -298,7 +298,7 @@ function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string)
         <AnimatePresence mode="wait">
           <motion.div key={activeTab} className="flex-1 flex flex-col overflow-hidden relative z-[1]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
             {activeTab === "home" ? (
-              <div className="flex-1 overflow-y-auto overflow-x-hidden px-[20px] scrollbar-hide">
+              <div className="flex-1 overflow-y-auto overflow-x-hidden px-[20px] scrollbar-hide" style={{ scrollBehavior: "smooth" }}>
                 <div className="relative w-full pb-[100px]">
                   <div className="[word-break:break-word] content-stretch flex flex-col font-['Urbanist',sans-serif] font-medium gap-[16px] items-start leading-[0] pt-[40px] w-full">
                     <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] text-[#434343] text-[12px] tracking-[0.24px] leading-none">12 Jun, Thursday</p>
@@ -328,24 +328,46 @@ function Homepage({ onNavigate, defaultTab = "home" }: { onNavigate: (s: string)
           </motion.div>
         </AnimatePresence>
         <div className="absolute bottom-[16px] left-[20px] right-[20px] z-[2]" style={{ backdropFilter: "blur(80px) saturate(180%)", WebkitBackdropFilter: "blur(80px) saturate(180%)", backgroundColor: "rgba(253, 253, 253, 0.75)", borderRadius: 556 }}>
-          <div className="bg-[rgba(221,105,44,0.05)] flex h-[66px] items-center p-[8px] rounded-[60px] w-full">
-            {([
-              { id: "home" as const, label: "Home", icon: navHomeInactive, activeIcon: navHome },
-              { id: "care" as const, label: "Care", icon: navHeart, activeIcon: navHeartActive },
-              { id: "scan" as const, label: "Patch", icon: navScan, activeIcon: navScanActive },
-              { id: "profile" as const, label: "Profile", icon: navUser, activeIcon: navUserActive },
-            ]).map((tab) => {
-              const isActive = activeTab === tab.id;
-              return (
-                <div key={tab.id} className="flex-1 flex items-center justify-center h-[50px] cursor-pointer" onClick={() => setActiveTab(tab.id)}>
-                  <div className={`flex items-center h-[50px] px-[12px] py-[8px] rounded-[100px] ${isActive ? "bg-[rgba(221,105,44,0.2)] gap-[6px]" : ""}`}>
-                    <img alt="" className="shrink-0 size-[24px]" src={isActive ? tab.activeIcon : tab.icon} />
-                    {isActive && <p className="font-['Poppins',sans-serif] font-medium leading-[16px] text-[#dd692c] text-[12px] whitespace-nowrap">{tab.label}</p>}
+          <LayoutGroup>
+            <div className="bg-[rgba(221,105,44,0.05)] flex h-[66px] items-center p-[8px] rounded-[60px] w-full">
+              {([
+                { id: "home" as const, label: "Home", icon: navHomeInactive, activeIcon: navHome },
+                { id: "care" as const, label: "Care", icon: navHeart, activeIcon: navHeartActive },
+                { id: "scan" as const, label: "Patch", icon: navScan, activeIcon: navScanActive },
+                { id: "profile" as const, label: "Profile", icon: navUser, activeIcon: navUserActive },
+              ]).map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <div key={tab.id} className="flex-1 flex items-center justify-center h-[50px] cursor-pointer relative" onClick={() => setActiveTab(tab.id)}>
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-indicator"
+                        className="absolute inset-0 m-auto h-[50px] rounded-[100px] bg-[rgba(221,105,44,0.2)]"
+                        style={{ width: "auto", left: 0, right: 0 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                    <div className={`flex items-center h-[50px] px-[12px] py-[8px] rounded-[100px] relative z-[1] ${isActive ? "gap-[6px]" : ""}`}>
+                      <img alt="" className="shrink-0 size-[24px]" src={isActive ? tab.activeIcon : tab.icon} />
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.p
+                            initial={{ opacity: 0, width: 0 }}
+                            animate={{ opacity: 1, width: "auto" }}
+                            exit={{ opacity: 0, width: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="font-['Poppins',sans-serif] font-medium leading-[16px] text-[#dd692c] text-[12px] whitespace-nowrap overflow-hidden"
+                          >
+                            {tab.label}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          </LayoutGroup>
         </div>
         <div aria-hidden className="absolute border border-[#fdfdfd] border-solid inset-0 pointer-events-none rounded-[44px]" />
       </div>
